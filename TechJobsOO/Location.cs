@@ -9,11 +9,19 @@ namespace TechJobsOO
 
         public Location()
         {
-            Id = nextId;
+            Id = nextId; //initialize id proptery
             nextId++;
         }
 
         // TODO: Add a second constructor to this class that uses the Location() constructor and sets the value of the value field.
+
+        public Location(string value) : this()//constructor chaining: calling first constructor to initalize id field
+        {
+            Value = value; //sets the value of value field
+        }
+
+
+
 
         public override bool Equals(object obj)
         {

@@ -3,19 +3,29 @@ namespace TechJobsOO
 {
     public class Employer
     {
-        public int Id { get; }
-        private static int nextId = 1;
+
+        //get can only read information from that private field and return it
+        //set can only write information in that private field.
+
+        public int Id { get; } 
+        private static int nextId = 1; // cause its static, its changing value is NOT stored within any Employer object.
         public string Value { get; set; }
 
+
+        //-------------constructors-------------//
+
+        //every new Employer object will get a different ID number
         public Employer()
         {
-            Id = nextId;
-            nextId++;
+            Id = nextId; //assigns value of nextId to id field
+            nextId++; //increments nextId
         }
 
-        public Employer(string value) : this()
+        //initializes id for the object by calling first constructor statement with ": this()"
+        //ixncluding ": this()" in any Employer constructor makes initializing id a default behavior
+        public Employer(string value) : this()//constructor chaining
         {
-            Value = value;
+            Value = value; //assigns value field 
         }
 
         public override bool Equals(object obj)

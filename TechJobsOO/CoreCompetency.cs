@@ -3,15 +3,15 @@ namespace TechJobsOO
 {
     public class CoreCompetency
     {
-        private int id {get; }
+        public int Id {get; }
         private static int nextId = 1;
-        private string value { get; set; }
+        public string Value { get; set; }
 
         // TODO: Change the fields to auto-implemented properties.
 
         public CoreCompetency()
         {
-            id = nextId;
+            Id = nextId;
             nextId++;
         }
 
@@ -23,18 +23,18 @@ namespace TechJobsOO
         public override bool Equals(object obj)
         {
             return obj is CoreCompetency competency &&
-                   id == competency.id;
+                   Id == competency.Id;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(id);
+            return HashCode.Combine(Id);
         }
 
         public override string ToString()
         {
-            return value;
+            return Value;
         }
     }
-    }
+    
 }

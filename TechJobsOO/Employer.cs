@@ -22,7 +22,7 @@ namespace TechJobsOO
         }
 
         //initializes id for the object by calling first constructor statement with ": this()"
-        //ixncluding ": this()" in any Employer constructor makes initializing id a default behavior
+        //including ": this()" in any Employer constructor makes initializing id a default behavior
         public Employer(string value) : this()//constructor chaining
         {
             Value = value; //assigns value field 

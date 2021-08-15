@@ -17,7 +17,7 @@ namespace TechJobsOO
 
         public CoreCompetency(string v) : this()
         {
-            value = v;
+            Value = v;
         }
 
         public override bool Equals(object obj)

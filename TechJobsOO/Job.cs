@@ -17,7 +17,8 @@ namespace TechJobsOO
         //constructor 1 of Job class: initialize id field with a unqiue value. Takes no parameter.
         public Job()
         {
-            Id = 00001;
+            Id = nextId;
+            nextId++;
         }
 
         //constructor 2: Takes 5 parameter and assign values to them //Use constructor chaining to call first constructor so that id field will initalize
@@ -43,5 +44,7 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id);
         }
+
+    
     }
 }

@@ -15,9 +15,15 @@ namespace TechJobsOO
             nextId++;
         }
 
-        public CoreCompetency(string v) : this()
+        public CoreCompetency(string value) : this()
         {
-            Value = v;
+            string unavailableMessage = "Data not available";
+            Value = value;
+
+            if (value == "")
+            {
+                Value = unavailableMessage;
+            }
         }
 
         public override bool Equals(object obj)

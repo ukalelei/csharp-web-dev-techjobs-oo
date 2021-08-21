@@ -25,7 +25,14 @@ namespace TechJobsOO
         //including ": this()" in any Employer constructor makes initializing id a default behavior
         public Employer(string value) : this()//constructor chaining
         {
-            Value = value; //assigns value field 
+            string unavailableMessage = "Data not available";
+            Value = value; //assigns value field
+
+            if (value == "")
+            {
+                Value = unavailableMessage;
+            }
+            
         }
 
         public override bool Equals(object obj)

@@ -17,7 +17,13 @@ namespace TechJobsOO
 
         public Location(string value) : this()//constructor chaining: calling first constructor to initalize id field
         {
-            Value = value; //sets the value of value field
+            string unavailableMessage = "Data not available";
+            Value = value;
+
+            if (value == "")
+            {
+                Value = unavailableMessage;
+            }
         }
 
 

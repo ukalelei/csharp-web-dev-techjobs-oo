@@ -15,7 +15,13 @@ namespace TechJobsOO
 
         public PositionType(string value) : this()
         {
+            string unavailableMessage = "Data not available";
             Value = value;
+
+            if (value == "")
+            {
+                Value = unavailableMessage;
+            }
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.

@@ -11,6 +11,7 @@ namespace TechJobsTests
         Job two;
         Job test_three;
         Employer ACME;
+        Location desert;
         PositionType qualityControl;
         CoreCompetency persistence;
 
@@ -79,6 +80,38 @@ namespace TechJobsTests
         }
 
         //TODO TEST 4
+        //When passed a Job object, it should return a string that contains a blank line before and after the job information
+        [TestMethod]
+        public void ShouldReturnTwoBlankLineBeforeInfo()
+        {
+            String toString = one.ToString();
+            Assert.IsTrue(toString.Contains("  "));
+        }
+
+        //TODO TEST 5
+        //string should contain a label for each field, followed by the data stored in that field. Each field should be on its own line.
+        [TestMethod]
+        public void ShouldBeLabelThenDataAndBeOnOwnLine()
+        {
+            Assert.AreEqual("\n" + "ID:  " + one.Id + "\n" + "Name:  " + one.Name + "\n" + "Employer:  " + one.EmployerName + "\n" + "Location:  " + one.EmployerLocation + "\n" + "Position Type:  " + one.JobType + "\n" + "Core Competency:  " + one.JobCoreCompetency, one.ToString());
+        }
+
+        //TODO TEST 6
+        //if field is empty, return “Data not available” after the label.
+        [TestMethod]
+        public void ShouldDisplayNotAvailableIfAFieldIsEmpty ()
+        {
+            //create empty objects
+            Employer EmployerEmpty = new Employer("");
+            Location LocationEmpty = new Location("");
+            PositionType PositionEmpty = new PositionType("");
+            CoreCompetency CompetencyEmpty = new CoreCompetency("");
+
+            //declare message that would be displayed if field is empty
+            string unavailable =  "Data not available";
+
+            //create object with empty-string fields
+            Job four_test = new Job("Some Job", EmployerEmpty, LocationEmpty, PositionEmpty, CompetencyEmpty);
 
             //assert test
             Assert.AreEqual("\n" + "ID:  " + four_test.Id + "\n" + "Name:  " + four_test.Name +"\n" + "Employer:  " + unavailable + "\n" + "Location:  " + unavailable + "\n" + "Position Type:  " + unavailable + "\n" + "Core Competency:  " + unavailable , four_test.ToString());

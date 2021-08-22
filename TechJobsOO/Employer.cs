@@ -20,7 +20,7 @@ namespace TechJobsOO
             Id = nextId; //assigns value of nextId to id field
             nextId++; //increments nextId
         }
-
+        
         //initializes id for the object by calling first constructor statement with ": this()"
         //including ": this()" in any Employer constructor makes initializing id a default behavior
         public Employer(string value) : this()//constructor chaining

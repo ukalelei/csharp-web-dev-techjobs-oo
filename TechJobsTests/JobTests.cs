@@ -85,7 +85,8 @@ namespace TechJobsTests
         public void ShouldReturnTwoBlankLineBeforeInfo()
         {
             String toString = one.ToString();
-            Assert.IsTrue(toString.Contains("  "));
+            Assert.IsTrue(toString.StartsWith("\n"));
+           
         }
 
         //TODO TEST 5

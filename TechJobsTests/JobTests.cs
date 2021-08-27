@@ -7,26 +7,29 @@ namespace TechJobsTests
     [TestClass]
     public class JobTests
     {
+        //declare global variables that will allow all tests to have access
         Job one;
         Job two;
-        Job test_three;
+        Job three;
         Employer ACME;
         Location desert;
         PositionType qualityControl;
         CoreCompetency persistence;
 
 
-        [TestInitialize]
+        [TestInitialize] //TestInitalize attribute will run CreateObjects() method before each test method is run
         public void CreateObjects()
         {
+            //instantiate class Job, Employer, Location, PositionType, and CoreCompetency
+            two = new Job();
+            three = new Job("Product tester", ACME, desert, qualityControl, persistence);
+            one = new Job();
+
             ACME = new Employer("ACME");
             desert = new Location("Desert");
             qualityControl = new PositionType("Quality control");
             persistence = new CoreCompetency("Persistence");
 
-            one = new Job();
-            two = new Job();
-            test_three = new Job("Product tester", ACME, desert, qualityControl, persistence);
         }
 
 
@@ -42,21 +45,12 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
-            /*arrange variable  
-            Employer ACME = new Employer("ACME");
-            Location desert = new Location("Desert");
-            PositionType qualityControl = new PositionType("Quality control");
-            CoreCompetency persistence = new CoreCompetency("Persistence");*/
-
-            //act on Job constructor method
-            //test_three = new Job("Product tester", ACME, desert, qualityControl, persistence);
-
             //assert statements to test that the constructor correctly assigns the value of each field
-            Assert.AreEqual("Product tester", test_three.Name);
-            Assert.AreEqual(ACME, test_three.EmployerName);
-            Assert.AreEqual(desert, test_three.EmployerLocation);
-            Assert.AreEqual(qualityControl, test_three.JobType);
-            Assert.AreEqual(persistence, test_three.JobCoreCompetency);
+            Assert.AreEqual("Product tester", three.Name);
+            Assert.AreEqual(ACME, three.EmployerName);
+            Assert.AreEqual(desert, three.EmployerLocation);
+            Assert.AreEqual(qualityControl, three.JobType);
+            Assert.AreEqual(persistence, three.JobCoreCompetency);
         }
 
         //TODO TEST 3
@@ -65,12 +59,6 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobsForEquality()
         {
-            //Passing arguement to Job constructor 
-            /*Employer ACME = new Employer("ACME");
-            Location desert = new Location("Desert");
-            PositionType qualityControl = new PositionType("Quality control");
-            CoreCompetency persistence = new CoreCompetency("Persistence");*/
-
             //two Job object with identical fields except for their id
             one = new Job("Product tester", ACME, desert, qualityControl, persistence);
             two = new Job("Product tester", ACME, desert, qualityControl, persistence);

@@ -1,30 +1,11 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class CoreCompetency
+    public class CoreCompetency : JobField
     {
-        public int Id {get; }
-        private static int nextId = 1;
-        public string Value { get; set; }
+        public CoreCompetency() : base() { }
 
-        // TODO: Change the fields to auto-implemented properties.
-
-        public CoreCompetency()
-        {
-            Id = nextId;
-            nextId++;
-        }
-
-        public CoreCompetency(string value) : this()
-        {
-            string unavailableMessage = "Data not available";
-            Value = value;
-
-            if (value == "")
-            {
-                Value = unavailableMessage;
-            }
-        }
+        public CoreCompetency(string value) : base(value) { }
 
         public override bool Equals(object obj)
         {
@@ -37,10 +18,7 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
-        public override string ToString()
-        {
-            return Value;
-        }
+      
     }
     
 }

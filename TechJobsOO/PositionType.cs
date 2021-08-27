@@ -1,30 +1,12 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class PositionType
-    {
-        public int Id { get; }
-        private static int nextId = 1;
-        public string Value { get; set; }
+    public class PositionType : JobField
+    { 
 
-        public PositionType()
-        {
-            Id = nextId;
-            nextId++;
-        }
+        public PositionType() : base() { }
 
-        public PositionType(string value) : this()
-        {
-            string unavailableMessage = "Data not available";
-            Value = value;
-
-            if (value == "")
-            {
-                Value = unavailableMessage;
-            }
-        }
-
-        // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
+        public PositionType(string value) : base(value){}
 
         //ToString method
         public override string ToString()
@@ -39,7 +21,6 @@ namespace TechJobsOO
                    Id == position.Id; //Value of Id and value of position.Id is compared for equality 
         }
 
-        //GetHashCode 
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);

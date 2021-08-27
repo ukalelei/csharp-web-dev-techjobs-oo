@@ -1,41 +1,15 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class Employer
+    public class Employer : JobField
     {
 
-        //get can only read information from that private field and return it
-        //set can only write information in that private field.
+        public Employer() : base() { }
 
-        public int Id { get; } 
-        private static int nextId = 1; // cause its static, its changing value is NOT stored within any Employer object.
-        public string Value { get; set; }
+        public Employer(string value) : base(value) { }
 
 
-        //-------------constructors-------------//
-
-        //every new Employer object will get a different ID number
-        public Employer()
-        {
-            Id = nextId; //assigns value of nextId to id field
-            nextId++; //increments nextId
-        }
-        
-        //initializes id for the object by calling first constructor statement with ": this()"
-        //including ": this()" in any Employer constructor makes initializing id a default behavior
-        public Employer(string value) : this()//constructor chaining
-        {
-            string unavailableMessage = "Data not available";
-            Value = value; //assigns value field
-
-            if (value == "")
-            {
-                Value = unavailableMessage;
-            }
-            
-        }
-
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) 
         {
             return obj is Employer employer &&
                    Id == employer.Id;
@@ -46,9 +20,6 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
-        public override string ToString()
-        {
-            return Value;
-        }
+     
     }
 }
